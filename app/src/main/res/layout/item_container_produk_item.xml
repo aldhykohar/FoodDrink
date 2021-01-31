@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_item_produk"
+            app:layout_constraintBottom_toBottomOf="@+id/ivItem"
+            app:layout_constraintTop_toTopOf="@+id/ivItem"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/ivItem"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="fitXY"
+            android:src="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_corner_radius="10dp" />
+
+        <TextView
+            android:id="@+id/tvItemName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:textColor="@color/colorTextBlack"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/ivItem"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            tools:text="@string/kopi_susu" />
+
+        <TextView
+            android:id="@+id/tvItemPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/ubuntu_regular"
+            android:textColor="@color/colorTextGrey"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/ivItem"
+            app:layout_constraintTop_toBottomOf="@+id/tvItemName"
+            tools:text="@string/kopi_susu" />
+
+        <TextView
+            android:id="@+id/mbTambah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/background_yellow_rounded_high"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/ubuntu_bold"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:paddingStart="4dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:text="@string/tambah"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:drawableLeftCompat="@drawable/ic_round_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/view" />
+
+        <LinearLayout
+            android:id="@+id/llCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/mbTambah"
+            app:layout_constraintEnd_toEndOf="@+id/mbTambah"
+            app:layout_constraintTop_toTopOf="@+id/mbTambah">
+
+            <ImageView
+                android:id="@+id/ivMinus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity=""
+                android:background="@drawable/background_yellow_rounded_high"
+                android:src="@drawable/ic_round_remove" />
+
+            <TextView
+                android:id="@+id/tvCounter"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/background_white_rounded_high"
+                android:text="1"/>
+
+            <ImageView
+                android:id="@+id/ivPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_yellow_rounded_high"
+                android:src="@drawable/ic_round_add" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

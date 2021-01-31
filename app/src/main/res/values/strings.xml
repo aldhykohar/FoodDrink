@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">FoodDrink</string>
+    <string name="scan_sekarang">Scan Sekarang</string>
+    <string name="turn_on_flash">Turn on flash</string>
+    <string name="turn_off_flash">Turn off flash</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="kopi_susu">Kopi susu</string>
+    <string name="tambah">Tambah</string>
+
+    <string-array name="data_drink_name">
+        <item>Kopi Susu</item>
+        <item>Kopi Hitam</item>
+        <item>Cappucino</item>
+        <item>Milo</item>
+        <item>Susu</item>
+        <item>Chocolate</item>
+        <item>Extra Joss + Susu</item>
+        <item>Soda Gembira</item>
+        <item>Jus Alvocado</item>
+        <item>Jus Jeruk</item>
+    </string-array>
+
+    <string-array name="data_drink_image">
+        <item>https://cdn0-production-images-kly.akamaized.net/zWWikH3ojQsfWS6elQNlAneexkc=/640x640/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/1606270/original/065178600_1495862348-kopi-dan-susu.jpg</item>
+        <item>https://www.makanabis.com/bima-content/2020/03/27/l-jpgc36bbd258b7ee694eb987221b2b197b020200327103818-bimacms.jpg</item>
+        <item>https://www.makanabis.com/bima-content/2019/10/19/l-istock-505168330-640x427773211c9b600af4c990d72a85f45ab7a20191019120747-bimacms.jpg</item>
+        <item>https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1585880142/be7r8bvdqhw246qsky4p.jpg</item>
+        <item>https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2012/8/15/0/FLN-Butterscotch-Bedtime-Warmer-Cocktail-Recipe.jpg.rend.hgtvcom.1280.960.suffix/1400976109107.jpeg</item>
+        <item>https://www.cariwaralaba.com/wp-content/uploads/2017/10/mc-dingin.jpeg</item>
+        <item>https://d1sag4ddilekf6.cloudfront.net/compressed/items/IDITE2019100905465543830/photo/menueditor_item_9d2c91ed3a51440ca262b5d5f6f4910b_1570599991617267564.jpg</item>
+        <item>https://i.postimg.cc/44mrfFJL/pakkostamboel-16585373-769154373231636-3827222074447888384-n.jpg</item>
+        <item>https://i2.wp.com/www.angsarap.net/wp-content/uploads/2014/09/Jus-Alpukat-Indonesian-Avocado-Shake-Wide.jpg?ssl=1</item>
+        <item>https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/9/19/2f873a26-86ac-4804-91d4-8edf1af6a4cf.jpg</item>
+    </string-array>
+
+    <string-array name="data_drink_price">
+        <item>10000</item>
+        <item>5000</item>
+        <item>15000</item>
+        <item>15000</item>
+        <item>15000</item>
+        <item>15000</item>
+        <item>10000</item>
+        <item>12000</item>
+        <item>15000</item>
+        <item>15000</item>
+    </string-array>
+
+    <string-array name="data_drink_id">
+        <item>54</item>
+        <item>73</item>
+        <item>23</item>
+        <item>49</item>
+        <item>20</item>
+        <item>35</item>
+        <item>56</item>
+        <item>33</item>
+        <item>59</item>
+        <item>86</item>
+    </string-array>
+</resources>
