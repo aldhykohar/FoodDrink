@@ -4,27 +4,31 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.stimednp.fooddrinkcustomer.data.dao.FoodDrinkDao
 import com.stimednp.fooddrinkcustomer.ui.model.ProdukModel
 
 
 @Database(entities = [ProdukModel::class], version = 1, exportSchema = false)
 abstract class FoodDrinkDatabase : RoomDatabase() {
 
-    abstract fun foodDrinkDao(): FoodDrinkDao?
+    abstract fun foodDrinkDao(): FoodDrinkDao
 
-    companion object{
-        private var foodDrinkDatabase: FoodDrinkDatabase? = null
+    companion object {
+        @Volatile
+        private var instance: FoodDrinkDatabase? = null
+        private val LOCK = Any()
 
-        fun getFoodDrinkDatabase(context: Context?): FoodDrinkDatabase? {
-            if (foodDrinkDatabase == null) {
-                foodDrinkDatabase = Room.databaseBuilder(
-                    context!!,
-                    FoodDrinkDatabase::class.java,
-                    "FoodDrink_db"
-                ).build()
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
+            instance ?: buildDatabase(context).also {
+                instance = it
             }
-            return foodDrinkDatabase
         }
+
+        private fun buildDatabase(context: Context) =
+            Room.databaseBuilder(
+                context.applicationContext,
+                FoodDrinkDatabase::class.java,
+                "MyDatabase.db"
+            ).build()
     }
+
 }

@@ -2,27 +2,34 @@ package com.stimednp.fooddrinkcustomer.ui.home.fragment
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.stimednp.fooddrinkcustomer.R
 import com.stimednp.fooddrinkcustomer.databinding.FragmentDrinkBinding
 import com.stimednp.fooddrinkcustomer.ui.adapter.ProdukItemAdapter
 import com.stimednp.fooddrinkcustomer.ui.home.FoodDrinkListener
 import com.stimednp.fooddrinkcustomer.ui.model.ProdukModel
-import kotlin.math.log
+import kotlinx.coroutines.launch
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.x.kodein
+import org.kodein.di.generic.instance
 
-class DrinkFragment : Fragment(), FoodDrinkListener {
+class DrinkFragment : Fragment(), FoodDrinkListener, KodeinAware {
 
-    private var binding: FragmentDrinkBinding? = null
+    override val kodein by kodein()
+
+    private lateinit var binding: FragmentDrinkBinding
     private val listItem = ArrayList<ProdukModel>()
     private lateinit var viewModel: FoodDrinkViewModel
+
+    private val factory: FoodDrinkViewModelProvider by instance()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,14 +37,21 @@ class DrinkFragment : Fragment(), FoodDrinkListener {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDrinkBinding.inflate(inflater, container, false)
+        return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         doInitialization()
-        return binding!!.root
 
     }
 
     private fun doInitialization() {
-        viewModel = ViewModelProvider(this).get(FoodDrinkViewModel::class.java)
-        binding!!.rvDrink.setHasFixedSize(true)
+        viewModel = ViewModelProvider(
+            this, factory
+        ).get(FoodDrinkViewModel::class.java)
+        binding.rvDrink.setHasFixedSize(true)
         listItem.addAll(getListHeroes())
         showRecyclerList()
         getDataBasket()
@@ -45,14 +59,19 @@ class DrinkFragment : Fragment(), FoodDrinkListener {
     }
 
     private fun getDataBasket() {
-        viewModel.getAllBasketObservers().observe(viewLifecycleOwner, Observer {
-            Log.e("DATA", "getDataBasket: $it")
-        })
+        lifecycleScope.launch {
+            val response = viewModel.getDataBasket()
+            Log.e("DATA", "getDataBasket: $response")
+        }
     }
 
     private fun insertData(model: ProdukModel) {
         val produkModel = ProdukModel(model.id, model.title, model.image, model.price, model.count)
-        viewModel.insertDataBasket(produkModel)
+
+        lifecycleScope.launch {
+            viewModel.addItemToBasket(produkModel)
+        }
+
     }
 
     fun getListHeroes(): ArrayList<ProdukModel> {
@@ -75,14 +94,9 @@ class DrinkFragment : Fragment(), FoodDrinkListener {
     }
 
     private fun showRecyclerList() {
-        binding!!.rvDrink.layoutManager = LinearLayoutManager(context)
+        binding.rvDrink.layoutManager = LinearLayoutManager(context)
         val adapter = context?.let { ProdukItemAdapter(it, listItem, this) }
-        binding!!.rvDrink.adapter = adapter
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
+        binding.rvDrink.adapter = adapter
     }
 
     override fun onPlusClicked(model: ProdukModel) {

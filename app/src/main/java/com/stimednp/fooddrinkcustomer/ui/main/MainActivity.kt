@@ -21,11 +21,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.mbScan.setOnClickListener {
-            val intentIntegrator = IntentIntegrator(this)
-            intentIntegrator.setBeepEnabled(false)
-            intentIntegrator.setOrientationLocked(true)
-            intentIntegrator.captureActivity = ScannerActivity::class.java
-            intentIntegrator.initiateScan()
+//            val intentIntegrator = IntentIntegrator(this)
+//            intentIntegrator.setBeepEnabled(false)
+//            intentIntegrator.setOrientationLocked(true)
+//            intentIntegrator.captureActivity = ScannerActivity::class.java
+//            intentIntegrator.initiateScan()
+
+            val intent = Intent(this, HomeActivity::class.java)
+//            intent.putExtra("key", intentResult.contents)
+            startActivity(intent)
         }
     }
 
