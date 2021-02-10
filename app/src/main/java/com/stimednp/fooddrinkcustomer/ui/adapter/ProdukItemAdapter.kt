@@ -1,6 +1,7 @@
 package com.stimednp.fooddrinkcustomer.ui.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
@@ -46,17 +47,33 @@ class ProdukItemAdapter(
                 tvItemName.text = produkModel.title
                 tvItemPrice.text = produkModel.price
 
-                binding.mbTambah.setOnClickListener {
+                Log.e("TAG", "bind: "+produkModel.isSelected )
+                if (produkModel.isSelected) {
                     llCounter.visibility = VISIBLE
                     mbTambah.visibility = INVISIBLE
-                    listener.onAddClicked(produkModel)
+                } else {
+                    llCounter.visibility = INVISIBLE
+                    mbTambah.visibility = VISIBLE
                 }
 
-                binding.ivPlus.setOnClickListener {
+                mbTambah.setOnClickListener {
+                    if (produkModel.isSelected) {
+                        produkModel.isSelected = false
+                        llCounter.visibility = INVISIBLE
+                        mbTambah.visibility = VISIBLE
+                    } else {
+                        produkModel.isSelected = true
+                        llCounter.visibility = VISIBLE
+                        mbTambah.visibility = INVISIBLE
+                        listener.onAddClicked(produkModel)
+                    }
+                }
+
+                ivPlus.setOnClickListener {
                     produkModel.count = produkModel.count + 1
                     tvCounter.text = produkModel.count.toString()
                 }
-                binding.ivMinus.setOnClickListener {
+                ivMinus.setOnClickListener {
                     if (produkModel.count <= 1) {
                         mbTambah.visibility = VISIBLE
                         llCounter.visibility = INVISIBLE

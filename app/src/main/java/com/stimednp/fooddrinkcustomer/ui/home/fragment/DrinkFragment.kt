@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +13,7 @@ import com.stimednp.fooddrinkcustomer.R
 import com.stimednp.fooddrinkcustomer.databinding.FragmentDrinkBinding
 import com.stimednp.fooddrinkcustomer.ui.adapter.ProdukItemAdapter
 import com.stimednp.fooddrinkcustomer.ui.home.FoodDrinkListener
+import com.stimednp.fooddrinkcustomer.ui.home.HomeActivity
 import com.stimednp.fooddrinkcustomer.ui.model.ProdukModel
 import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
@@ -95,22 +95,31 @@ class DrinkFragment : Fragment(), FoodDrinkListener, KodeinAware {
 
     private fun showRecyclerList() {
         binding.rvDrink.layoutManager = LinearLayoutManager(context)
+        binding.rvDrink.setHasFixedSize(false)
         val adapter = context?.let { ProdukItemAdapter(it, listItem, this) }
         binding.rvDrink.adapter = adapter
     }
 
-    override fun onPlusClicked(model: ProdukModel) {
-
+    fun updateOrder(model: ProdukModel, count: Int) {
+        val position = (HomeActivity).listOrder.indexOf(model)
+        (HomeActivity).listOrder[position].count = count
     }
 
-    override fun onMinusClicked(model: ProdukModel) {
-        TODO("Not yet implemented")
+    override fun onPlusClicked(model: ProdukModel, count: Int) {
+        updateOrder(model, count)
+    }
+
+    override fun onMinusClicked(model: ProdukModel, count: Int) {
+        updateOrder(model, count)
     }
 
     override fun onAddClicked(model: ProdukModel) {
-        Toast.makeText(context, model.title + " ditambahkan ke keranjang", Toast.LENGTH_SHORT)
-            .show()
-        insertData(model)
+//        Toast.makeText(context, model.title + " ditambahkan ke keranjang", Toast.LENGTH_SHORT)
+//            .show()
+//        insertData(model)
+
+        (HomeActivity).listOrder.add(model)
+
     }
 
 }

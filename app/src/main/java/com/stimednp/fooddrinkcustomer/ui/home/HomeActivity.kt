@@ -8,6 +8,7 @@ import com.stimednp.fooddrinkcustomer.databinding.ActivityHomeBinding
 import com.stimednp.fooddrinkcustomer.ui.adapter.SectionPagerAdapter
 import com.stimednp.fooddrinkcustomer.ui.home.fragment.DrinkFragment
 import com.stimednp.fooddrinkcustomer.ui.home.fragment.FoodsFragment
+import com.stimednp.fooddrinkcustomer.ui.model.ProdukModel
 
 
 class HomeActivity : AppCompatActivity() {
@@ -15,6 +16,12 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
 
     private var indicatorWidth = 0
+
+    companion object {
+
+        val listOrder: ArrayList<ProdukModel> = ArrayList()
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,13 +57,13 @@ class HomeActivity : AppCompatActivity() {
                 positionOffset: Float,
                 positionOffsetPixels: Int
             ) {
-                val params= binding.indicator.layoutParams as FrameLayout.LayoutParams
+                val params = binding.indicator.layoutParams as FrameLayout.LayoutParams
 
                 //Multiply positionOffset with indicatorWidth to get translation
 
                 //Multiply positionOffset with indicatorWidth to get translation
                 val translationOffset: Float = (positionOffset + position) * indicatorWidth
-                params.leftMargin= translationOffset.toInt()
+                params.leftMargin = translationOffset.toInt()
                 binding.indicator.layoutParams = params
             }
 

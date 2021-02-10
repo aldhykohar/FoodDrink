@@ -4,7 +4,7 @@ import com.stimednp.fooddrinkcustomer.ui.model.ProdukModel
 
 interface FoodDrinkListener {
 
-    fun onPlusClicked(model: ProdukModel)
-    fun onMinusClicked(model: ProdukModel)
+    fun onPlusClicked(model: ProdukModel, count: Int)
+    fun onMinusClicked(model: ProdukModel,count: Int)
     fun onAddClicked(model: ProdukModel)
 }
