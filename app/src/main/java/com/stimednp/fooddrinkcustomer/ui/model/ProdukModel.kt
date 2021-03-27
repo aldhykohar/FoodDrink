@@ -10,6 +10,5 @@ data class ProdukModel(
     var title: String,
     var image: String,
     var price: String,
-    var count: Int,
-    var isSelected: Boolean = false
+    var count: Int
 )

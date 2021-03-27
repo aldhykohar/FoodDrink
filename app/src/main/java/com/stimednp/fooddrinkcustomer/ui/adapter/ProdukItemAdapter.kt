@@ -20,6 +20,8 @@ class ProdukItemAdapter(
 ) :
     RecyclerView.Adapter<ProdukItemAdapter.ItemViewHolder>() {
 
+    private val mList: List<ProdukModel> = listProduk
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val binding = ItemContainerProdukItemBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -31,14 +33,20 @@ class ProdukItemAdapter(
 
     override fun getItemCount(): Int = listProduk.size
 
+
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.bind(mContext, listProduk[position], listener)
+//        holder.setIsRecyclable(false)
+        holder.bind(mContext, mList[position], listener)
     }
 
     class ItemViewHolder(private val binding: ItemContainerProdukItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(mContext: Context, produkModel: ProdukModel, listener: FoodDrinkListener) {
+        fun bind(
+            mContext: Context,
+            produkModel: ProdukModel,
+            listener: FoodDrinkListener
+        ) {
             with(binding) {
                 Glide.with(itemView.context)
                     .load(produkModel.image)
@@ -47,29 +55,14 @@ class ProdukItemAdapter(
                 tvItemName.text = produkModel.title
                 tvItemPrice.text = produkModel.price
 
-                Log.e("TAG", "bind: "+produkModel.isSelected )
-                if (produkModel.isSelected) {
+                mbTambah.setOnClickListener {
                     llCounter.visibility = VISIBLE
                     mbTambah.visibility = INVISIBLE
-                } else {
-                    llCounter.visibility = INVISIBLE
-                    mbTambah.visibility = VISIBLE
-                }
-
-                mbTambah.setOnClickListener {
-                    if (produkModel.isSelected) {
-                        produkModel.isSelected = false
-                        llCounter.visibility = INVISIBLE
-                        mbTambah.visibility = VISIBLE
-                    } else {
-                        produkModel.isSelected = true
-                        llCounter.visibility = VISIBLE
-                        mbTambah.visibility = INVISIBLE
-                        listener.onAddClicked(produkModel)
-                    }
+                    listener.onAddClicked(produkModel)
                 }
 
                 ivPlus.setOnClickListener {
+
                     produkModel.count = produkModel.count + 1
                     tvCounter.text = produkModel.count.toString()
                 }
@@ -89,5 +82,14 @@ class ProdukItemAdapter(
                 }
             }
         }
+    }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 }
