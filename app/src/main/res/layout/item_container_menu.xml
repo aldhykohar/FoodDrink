@@ -8,6 +8,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_8"
@@ -23,9 +24,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_100"
                 android:layout_margin="@dimen/dimen_8"
-                app:elevation="@dimen/dimen_2"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/cappucino"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:riv_corner_radius="@dimen/dimen_12" />

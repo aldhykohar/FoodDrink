@@ -9,16 +9,14 @@
     <androidx.cardview.widget.CardView
         android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_6"
-        android:layout_marginBottom="@dimen/dimen_6"
-        android:layout_marginEnd="@dimen/dimen_12"
-        app:cardElevation="@dimen/dimen_0"
+        android:layout_margin="@dimen/dimen_6"
+        app:cardElevation="@dimen/dimen_2"
         app:cardCornerRadius="@dimen/dimen_12">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:orientation="vertical">
 
             <com.makeramen.roundedimageview.RoundedImageView
@@ -26,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/cappucino"
                 app:riv_corner_radius="@dimen/dimen_12" />
 
             <TextView

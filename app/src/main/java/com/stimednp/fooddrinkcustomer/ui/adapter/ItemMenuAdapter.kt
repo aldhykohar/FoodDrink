@@ -1,11 +1,13 @@
 package com.stimednp.fooddrinkcustomer.ui.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.stimednp.fooddrinkcustomer.databinding.ItemContainerMenuBinding
 import com.stimednp.fooddrinkcustomer.databinding.ItemContainerPopularBinding
+import com.stimednp.fooddrinkcustomer.ui.detailpoduct.DetailProductActivity
 
 class ItemMenuAdapter(
     var mContext: Context
@@ -26,13 +28,18 @@ class ItemMenuAdapter(
 
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.bind()
+        holder.bind(mContext)
     }
 
     class ItemViewHolder(private val binding: ItemContainerMenuBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind() {
+        fun bind(context: Context) {
+            with(binding) {
+                container.setOnClickListener {
+                    context.startActivity(Intent(context, DetailProductActivity::class.java))
+                }
+            }
         }
     }
 

@@ -10,7 +10,6 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/dimen_16"
         tools:context=".ui.home2.HomeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +20,8 @@
                 android:id="@+id/textWelcome"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16"
+                android:layout_marginTop="@dimen/dimen_16"
                 android:fontFamily="@font/nunito_bold"
                 android:includeFontPadding="false"
                 android:text="Selamat datang di"
@@ -47,8 +48,10 @@
                 android:id="@+id/imageView3"
                 android:layout_width="@dimen/dimen_40"
                 android:layout_height="@dimen/dimen_40"
+                android:layout_marginEnd="@dimen/dimen_16"
                 android:background="@drawable/background_primary_dark_circle"
                 android:padding="@dimen/dimen_8"
+                android:elevation="@dimen/dimen_2"
                 android:src="@drawable/ic_shopping_cart"
                 app:layout_constraintBottom_toBottomOf="@+id/tvWarkop"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -65,20 +68,22 @@
                 android:text="Mau pesan apa?"
                 android:textColor="@color/colorGreyLow"
                 android:textSize="@dimen/text_16"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView3"
                 app:layout_constraintStart_toStartOf="@+id/textWelcome"
                 app:layout_constraintTop_toBottomOf="@+id/tvWarkop" />
 
             <EditText
                 android:id="@+id/editText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_8"
-                android:background="@drawable/background_primary_dark_rounded_12dp"
+                android:background="@drawable/background_primary_rounded_12dp"
                 android:fontFamily="@font/nunito_reguler"
                 android:hint="Cari menu..."
                 android:padding="@dimen/dimen_14"
-                app:layout_constraintStart_toStartOf="parent"
+                android:elevation="@dimen/dimen_2"
+                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintStart_toStartOf="@+id/textMauPesan"
                 app:layout_constraintTop_toBottomOf="@+id/textMauPesan" />
 
             <TextView
@@ -91,7 +96,8 @@
                 android:text="Populer"
                 android:textColor="@color/colorGreyMedium"
                 android:textSize="@dimen/text_16"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/editText"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textWelcome"
                 app:layout_constraintTop_toBottomOf="@+id/editText" />
 
@@ -99,7 +105,9 @@
                 android:id="@+id/rvPopular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_4"
+                android:layout_marginStart="@dimen/dimen_8"
+                android:layout_marginEnd="@dimen/dimen_8"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textPopuler" />
 
@@ -107,14 +115,17 @@
                 android:id="@+id/rvCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_16"
+                android:layout_marginStart="@dimen/dimen_8"
+                android:layout_marginTop="@dimen/dimen_8"
+                android:layout_marginEnd="@dimen/dimen_8"
                 app:layout_constraintTop_toBottomOf="@id/rvPopular" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_16"
+                android:layout_marginStart="@dimen/dimen_8"
+                android:layout_marginEnd="@dimen/dimen_8"
                 app:layout_constraintTop_toBottomOf="@id/rvCategory" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
