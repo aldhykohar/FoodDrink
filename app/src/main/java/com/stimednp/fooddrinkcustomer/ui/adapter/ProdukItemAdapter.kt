@@ -62,7 +62,6 @@ class ProdukItemAdapter(
                 }
 
                 ivPlus.setOnClickListener {
-
                     produkModel.count = produkModel.count + 1
                     tvCounter.text = produkModel.count.toString()
                 }

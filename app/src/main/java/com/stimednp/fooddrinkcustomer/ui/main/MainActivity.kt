@@ -1,12 +1,13 @@
 package com.stimednp.fooddrinkcustomer.ui.main
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.stimednp.fooddrinkcustomer.R
 import com.stimednp.fooddrinkcustomer.databinding.ActivityMainBinding
-import com.stimednp.fooddrinkcustomer.utilities.showToast
+import com.stimednp.fooddrinkcustomer.ui.favorite.FavoriteFragment
+import com.stimednp.fooddrinkcustomer.ui.home2.HomeFragment
+import com.stimednp.fooddrinkcustomer.ui.order.OrderFragment
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -15,13 +16,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        doInitialization()
+        doInitialization(savedInstanceState)
 
     }
 
-    private fun doInitialization() {
+    private fun doInitialization(savedInstanceState: Bundle?) {
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().replace(
+                R.id.nav_host_fragment,
+                HomeFragment(), "Home"
+            ).commit()
+        }
         binding.navBottom.setOnNavigationItemSelectedListener {
-            showToast(it.title.toString())
+            when (it.itemId) {
+                R.id.menu_home -> supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment, HomeFragment(), "Home").commit()
+                R.id.menu_order -> supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment, OrderFragment(), "Order").commit()
+                R.id.menu_favorite -> supportFragmentManager.beginTransaction()
+                    .replace(R.id.nav_host_fragment, FavoriteFragment(), "Favrite").commit()
+            }
             true
         }
     }

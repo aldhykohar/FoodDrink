@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_6"
+        android:layout_marginBottom="@dimen/dimen_6"
+        android:layout_marginEnd="@dimen/dimen_12"
+        app:cardElevation="@dimen/dimen_0"
+        app:cardCornerRadius="@dimen/dimen_12">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="vertical">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/ivProduct"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher_background"
+                app:riv_corner_radius="@dimen/dimen_12" />
+
+            <TextView
+                android:id="@+id/tvProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_4"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_bold"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="Kopi Susu"
+                android:textColor="@color/colorGreyDark"
+                android:textSize="@dimen/text_12" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

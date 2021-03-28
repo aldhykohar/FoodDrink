@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_12">
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_reguler"
+            android:includeFontPadding="false"
+            android:padding="@dimen/dimen_12"
+            android:background="@drawable/background_primary_dark_rounded_14dp"
+            tools:text="Semua"
+            android:textColor="@color/colorGreyDark"
+            android:textSize="@dimen/text_14" />
+
+    </LinearLayout>
+</layout>
