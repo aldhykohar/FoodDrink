@@ -27,7 +27,7 @@
                 android:text="Selamat datang di"
                 android:textColor="@color/colorGreyDark"
                 android:textSize="@dimen/text_18"
-                app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                app:layout_constraintEnd_toStartOf="@+id/ivCart"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,12 +40,12 @@
                 android:text="Warkopna Aldhy"
                 android:textColor="@color/colorGreyDark"
                 android:textSize="@dimen/text_18"
-                app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                app:layout_constraintEnd_toStartOf="@+id/ivCart"
                 app:layout_constraintStart_toStartOf="@+id/textWelcome"
                 app:layout_constraintTop_toBottomOf="@id/textWelcome" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/ivCart"
                 android:layout_width="@dimen/dimen_40"
                 android:layout_height="@dimen/dimen_40"
                 android:layout_marginEnd="@dimen/dimen_16"
@@ -68,7 +68,7 @@
                 android:text="Mau pesan apa?"
                 android:textColor="@color/colorGreyLow"
                 android:textSize="@dimen/text_16"
-                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintEnd_toEndOf="@+id/ivCart"
                 app:layout_constraintStart_toStartOf="@+id/textWelcome"
                 app:layout_constraintTop_toBottomOf="@+id/tvWarkop" />
 
@@ -78,11 +78,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_8"
                 android:background="@drawable/background_primary_rounded_12dp"
+                android:elevation="@dimen/dimen_2"
                 android:fontFamily="@font/nunito_reguler"
                 android:hint="Cari menu..."
                 android:padding="@dimen/dimen_14"
-                android:elevation="@dimen/dimen_2"
-                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintEnd_toEndOf="@+id/ivCart"
                 app:layout_constraintStart_toStartOf="@+id/textMauPesan"
                 app:layout_constraintTop_toBottomOf="@+id/textMauPesan" />
 

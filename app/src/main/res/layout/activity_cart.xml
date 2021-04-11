@@ -1,9 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.keranjang.CartActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.detailpoduct.DetailProductActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/dimen_40"
+                android:layout_height="@dimen/dimen_40"
+                android:layout_margin="@dimen/dimen_16"
+                android:background="@drawable/background_primary_dark_circle"
+                android:elevation="@dimen/dimen_2"
+                android:src="@drawable/ic_round_keyboard_arrow_left_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/colorYellow" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_16"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_bold"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="Keranjang Kamu"
+                android:textColor="@color/colorGreyDark"
+                android:textSize="@dimen/text_20"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+            <TextView
+                android:id="@+id/textAtasNama"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_24"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_reguler"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="Tulis nama kamu"
+                android:textColor="@color/colorGreyDark"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+                app:layout_constraintStart_toStartOf="@+id/ivBack"
+                app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_primary_rounded_12dp"
+                android:elevation="@dimen/dimen_2"
+                android:fontFamily="@font/nunito_reguler"
+                android:hint="Atas nama"
+                android:padding="@dimen/dimen_12"
+                app:layout_constraintEnd_toEndOf="@+id/textAtasNama"
+                app:layout_constraintStart_toStartOf="@+id/textAtasNama"
+                app:layout_constraintTop_toBottomOf="@+id/textAtasNama" />
+
+            <TextView
+                android:id="@+id/textNomorMeja"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_reguler"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="Nomor meja kamu"
+                android:textColor="@color/colorGreyDark"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="@+id/etName"
+                app:layout_constraintStart_toStartOf="@+id/etName"
+                app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+            <EditText
+                android:id="@+id/etNoMeja"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_primary_rounded_12dp"
+                android:elevation="@dimen/dimen_2"
+                android:fontFamily="@font/nunito_reguler"
+                android:hint="Nomor meja..."
+                android:padding="@dimen/dimen_12"
+                app:layout_constraintEnd_toEndOf="@+id/textNomorMeja"
+                app:layout_constraintStart_toStartOf="@+id/textNomorMeja"
+                app:layout_constraintTop_toBottomOf="@+id/textNomorMeja" />
+
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintEnd_toEndOf="@+id/textNomorMeja"
+                app:layout_constraintStart_toStartOf="@+id/textNomorMeja"
+                app:layout_constraintTop_toBottomOf="@id/etNoMeja" />
+
+            <TextView
+                android:id="@+id/textPesanan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_reguler"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="Daftar Pesanan Kamu "
+                android:textColor="@color/colorGreyDark"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintEnd_toEndOf="@+id/etNoMeja"
+                app:layout_constraintStart_toStartOf="@+id/etNoMeja"
+                app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_8"
+                app:layout_constraintTop_toBottomOf="@id/textPesanan" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="@dimen/dimen_0"
+                android:layout_height="@dimen/dimen_1"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintEnd_toEndOf="@+id/textNomorMeja"
+                app:layout_constraintStart_toStartOf="@+id/textNomorMeja"
+                app:layout_constraintTop_toBottomOf="@id/rvCart" />
+
+            <TextView
+                android:id="@+id/textTotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_reguler"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="Total Pembayaran"
+                android:textColor="@color/colorGreyDark"
+                android:textSize="@dimen/text_20"
+                app:layout_constraintEnd_toStartOf="@+id/tvTotalPrice"
+                app:layout_constraintStart_toStartOf="@+id/etNoMeja"
+                app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+            <TextView
+                android:id="@+id/tvTotalPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/nunito_bold"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="Rp.50,000"
+                android:textColor="@color/colorGreyDark"
+                android:textSize="@dimen/text_20"
+                app:layout_constraintEnd_toEndOf="@+id/textPesanan"
+                app:layout_constraintTop_toTopOf="@+id/textTotal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_16"
+                android:background="@drawable/background_grey_dark_high_rounded_16dp"
+                android:elevation="@dimen/dimen_2"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:padding="@dimen/dimen_16"
+                android:text="Pesan Sekarang"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_16"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

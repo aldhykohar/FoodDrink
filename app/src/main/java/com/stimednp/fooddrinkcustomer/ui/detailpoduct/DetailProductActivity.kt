@@ -1,10 +1,12 @@
 package com.stimednp.fooddrinkcustomer.ui.detailpoduct
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.stimednp.fooddrinkcustomer.R
 import com.stimednp.fooddrinkcustomer.databinding.ActivityDetailProductBinding
+import com.stimednp.fooddrinkcustomer.ui.keranjang.CartActivity
 
 class DetailProductActivity : AppCompatActivity() {
 
@@ -22,11 +24,6 @@ class DetailProductActivity : AppCompatActivity() {
     }
 
     private fun doInitialization() {
-//        makeStatusBarTransparent()
-        /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.container)) { _, insets ->
-            binding.ivBack.setMarginTop(insets.systemWindowInsetTop)
-            insets.consumeSystemWindowInsets()
-        }*/
     }
 
     private fun doOnClick() {
@@ -46,6 +43,9 @@ class DetailProductActivity : AppCompatActivity() {
                         R.color.colorYellow
                     )
                 }
+            }
+            tvAddCart.setOnClickListener {
+                startActivity(Intent(this@DetailProductActivity, CartActivity::class.java))
             }
         }
     }

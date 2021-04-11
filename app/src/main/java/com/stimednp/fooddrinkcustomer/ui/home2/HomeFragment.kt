@@ -1,5 +1,6 @@
 package com.stimednp.fooddrinkcustomer.ui.home2
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.stimednp.fooddrinkcustomer.databinding.FragmentHomeBinding
 import com.stimednp.fooddrinkcustomer.ui.adapter.ItemCategoryAdapter
 import com.stimednp.fooddrinkcustomer.ui.adapter.ItemMenuAdapter
 import com.stimednp.fooddrinkcustomer.ui.adapter.ItemPopularAdapter
+import com.stimednp.fooddrinkcustomer.ui.keranjang.CartActivity
 
 class HomeFragment : Fragment(), HomeListener {
 
@@ -34,6 +36,7 @@ class HomeFragment : Fragment(), HomeListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         doInitialization()
+        doOnClick()
     }
 
     private fun doInitialization() {
@@ -62,6 +65,14 @@ class HomeFragment : Fragment(), HomeListener {
                 adapter = menuAdapter
             }
 
+        }
+    }
+
+    private fun doOnClick() {
+        binding.run {
+            ivCart.setOnClickListener {
+                startActivity(Intent(context, CartActivity::class.java))
+            }
         }
     }
 

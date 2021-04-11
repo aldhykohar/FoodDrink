@@ -204,6 +204,7 @@
                 app:layout_constraintTop_toBottomOf="@id/textTotal" />
 
             <TextView
+                android:id="@+id/tvAddCart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dimen_16"
@@ -213,7 +214,7 @@
                 android:fontFamily="@font/nunito_bold"
                 android:gravity="center"
                 android:padding="@dimen/dimen_16"
-                android:text="Tambah Kekeranjang"
+                android:text="Tambah Keranjang"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/text_16"
                 app:layout_constraintBottom_toBottomOf="parent" />
